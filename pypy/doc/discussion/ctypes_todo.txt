@@ -1,0 +1,36 @@
+Few ctypes-related todo points:
+
+* Write down missing parts and port all tests, eventually adding
+  additional tests.
+
+  - for unions and structs, late assignement of _fields_ is somewhat buggy.
+    Tests about behavior of getattr working properly on instances
+    are missing or not comprehensive. Some tests are skipped because I didn't
+    understand the details.
+
+  - _fields_ can be tuples too as well as lists
+
+  - restype being a function is not working.
+
+  - there are features, which we don't support like buffer() and
+    array() protocols.
+
+  - started refactoring (on the rawffi-shape-cleanup) to use rawffi types
+    instead of size, aligment tuples to describe members and arguments.
+    Rawffi composite types should be able to create corresponding ffi_types.
+
+  - no tests for passing a union by value
+
+  - for some ABIs we will need completely filled ffitypes to do the right thing for passing
+    structures by value
+
+  - bitfields are not implemented
+
+  - byteorder is not implemented
+
+* as all stuff is applevel, we cannot have it really fast right now.
+
+* we shall at least try to approach ctypes from the point of the jit
+  backends (at least on platforms that we support). The thing is that
+  we need a lot broader support of jit backends for different argument
+  passing in order to do it.

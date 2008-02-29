@@ -1,0 +1,8 @@
+
+test_descr
+    cannot easily complete this; after another quick review, the failures
+    left are mostly "don't care" internal details.
+
+test_extcall
+   cannot be fixed.  PyPy produces different TypeError messages but they are
+   also correct and useful (reviewed them again).
